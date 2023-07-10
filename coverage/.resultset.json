@@ -177,6 +177,16 @@
           null
         ]
       },
+      "/Users/crowrising/Turing/3Mod/TakeTwo/Projects/rails-engine/spec/factories/customer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/crowrising/Turing/3Mod/TakeTwo/Projects/rails-engine/config/routes.rb": {
         "lines": [
           1,
@@ -187,15 +197,14 @@
           null
         ]
       },
-      "/Users/crowrising/Turing/3Mod/TakeTwo/Projects/rails-engine/app/models/customer.rb": {
+      "/Users/crowrising/Turing/3Mod/TakeTwo/Projects/rails-engine/app/models/item.rb": {
         "lines": [
-          1,
-          1,
-          1,
           1,
           1,
           null,
           1,
+          null,
+          null,
           null,
           null
         ]
@@ -206,8 +215,17 @@
           1,
           null
         ]
+      },
+      "/Users/crowrising/Turing/3Mod/TakeTwo/Projects/rails-engine/app/models/merchant.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1689018709
+    "timestamp": 1689020122
   }
 }
