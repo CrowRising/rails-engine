@@ -38,10 +38,21 @@ RSpec.describe 'Search Merchant API' do
   
       get api_v1_merchants_find_path(name: '')
 
-      expect(response.status).to eq(404)
+     expect(response.status).to eq(404)
      error = JSON.parse(response.body, symbolize_names: true)
      expect(error).to have_key(:error)
      expect(error[:error]).to eq("Bad Request")
+    end
+
+    it 'returns not found when no match' do
+      @merchant = create(:merchant, name: "Bob Burgers")
+
+      get api_v1_merchants_find_path(name: 'kasjdfk')
+
+      merchant_data = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_successful
+      expect(merchant_data[:data]).to eq([])
     end
   end
 end
