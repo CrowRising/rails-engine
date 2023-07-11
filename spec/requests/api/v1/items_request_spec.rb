@@ -97,5 +97,19 @@ RSpec.describe 'Items API' do
       expect(edited_item.merchant_id).to eq(@merchant2.id)
       expect(edited_item.merchant_id).to_not eq(@merchant.id)
     end
+
+    it 'can destroy an item' do
+      create(:merchant)
+      id = create(:item, merchant_id: create(:merchant).id).id
+
+      expect(Item.count).to eq(1)
+
+      delete api_v1_item_path(id) 
+
+      expect(response).to be_successful
+      expect(response.status).to eq(204)
+      expect(Item.count).to eq(0)
+      expect{ Item.find(id) }.to raise_error(ActiveRecord::RecordNotFound)
+    end
   end
 end
