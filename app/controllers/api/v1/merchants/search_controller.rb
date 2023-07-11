@@ -4,7 +4,6 @@ module Api
   module V1
     module Merchants
       class SearchController < ApplicationController
-
         def search
           if !params[:name] || params[:name].empty?
             render json: { error: 'Bad Request' }, status: 404

@@ -58,9 +58,9 @@ RSpec.describe 'Items API' do
         merchant_id: create(:merchant).id
       }
 
-      headers = { 'CONTENT_TYPE' => 'application/json' }  
+      headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      post api_v1_items_path, headers: headers, params: JSON.generate(item_params)
+      post api_v1_items_path, headers:, params: JSON.generate(item_params)
       created_item = Item.last
 
       expect(response).to be_successful
@@ -70,22 +70,22 @@ RSpec.describe 'Items API' do
       expect(created_item.merchant_id).to eq(item_params[:merchant_id])
     end
 
-    it 'can update an existing item' do 
+    it 'can update an existing item' do
       @merchant = create(:merchant)
       @merchant2 = create(:merchant)
       id = create(:item, merchant_id: @merchant.id).id
 
-      edit_item_params = { 
-        name: 'Hammer', 
-        description: 'Making it easier to hammer things in', 
+      edit_item_params = {
+        name: 'Hammer',
+        description: 'Making it easier to hammer things in',
         unit_price: 12.99,
         merchant_id: @merchant2.id
       }
 
       headers = { 'CONTENT_TYPE' => 'application/json' }
 
-      patch api_v1_item_path(id), headers: headers, params: JSON.generate(edit_item_params)
-      edited_item = Item.find_by(id: id)
+      patch api_v1_item_path(id), headers:, params: JSON.generate(edit_item_params)
+      edited_item = Item.find_by(id:)
 
       expect(response).to be_successful
       expect(edited_item.name).to eq('Hammer')
@@ -104,12 +104,12 @@ RSpec.describe 'Items API' do
 
       expect(Item.count).to eq(1)
 
-      delete api_v1_item_path(id) 
+      delete api_v1_item_path(id)
 
       expect(response).to be_successful
       expect(response.status).to eq(204)
       expect(Item.count).to eq(0)
-      expect{ Item.find(id) }.to raise_error(ActiveRecord::RecordNotFound)
+      expect { Item.find(id) }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end
