@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Search All Item API' do
@@ -5,14 +7,14 @@ RSpec.describe 'Search All Item API' do
     before :each do
       @merchant = create(:merchant)
       @merchant2 = create(:merchant)
-      @merchant3 = create(:merchant) 
-      @item = create(:item, merchant_id: @merchant.id, unit_price: 10.00, name: "smashburger")
-      @item2 = create(:item, merchant_id: @merchant.id, unit_price: 10.00, name: "veggieburger")
-      @item3 = create(:item, merchant_id: @merchant2.id, unit_price: 11.00, name: "cheeseburger")
-      @item4 = create(:item, merchant_id: @merchant2.id, unit_price: 8.00, name: "burger")
-      @item5 = create(:item, merchant_id: @merchant2.id, unit_price: 7.00, name: "tiny burger")
-      @item6 = create(:item, merchant_id: @merchant3.id, unit_price: 13.00, name: "elk burger") 
-      @item7 = create(:item, merchant_id: @merchant3.id, unit_price: 10.00, name: "no-bun burger") 
+      @merchant3 = create(:merchant)
+      @item = create(:item, merchant_id: @merchant.id, unit_price: 10.00, name: 'smashburger')
+      @item2 = create(:item, merchant_id: @merchant.id, unit_price: 10.00, name: 'veggieburger')
+      @item3 = create(:item, merchant_id: @merchant2.id, unit_price: 11.00, name: 'cheeseburger')
+      @item4 = create(:item, merchant_id: @merchant2.id, unit_price: 8.00, name: 'burger')
+      @item5 = create(:item, merchant_id: @merchant2.id, unit_price: 7.00, name: 'tiny burger')
+      @item6 = create(:item, merchant_id: @merchant3.id, unit_price: 13.00, name: 'elk burger')
+      @item7 = create(:item, merchant_id: @merchant3.id, unit_price: 10.00, name: 'no-bun burger')
     end
 
     it 'can find all items that match a search term' do
