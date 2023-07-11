@@ -103,6 +103,13 @@ RSpec.describe 'Items API' do
       id = create(:item, merchant_id: create(:merchant).id).id
 
       expect(Item.count).to eq(1)
+
+      delete api_v1_item_path(id) 
+
+      expect(response).to be_successful
+      expect(response.status).to eq(204)
+      expect(Item.count).to eq(0)
+      expect{ Item.find(id) }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end
