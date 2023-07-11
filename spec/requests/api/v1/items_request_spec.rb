@@ -97,5 +97,12 @@ RSpec.describe 'Items API' do
       expect(edited_item.merchant_id).to eq(@merchant2.id)
       expect(edited_item.merchant_id).to_not eq(@merchant.id)
     end
+
+    it 'can destroy an item' do
+      create(:merchant)
+      id = create(:item, merchant_id: create(:merchant).id).id
+
+      expect(Item.count).to eq(1)
+    end
   end
 end
