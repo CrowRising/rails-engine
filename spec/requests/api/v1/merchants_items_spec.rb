@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Merchants Items API" do
+RSpec.describe 'Merchants Items API' do
   describe 'happy path' do
-    it "can get all items for a merchant" do
-     id = create(:merchant).id
-     create_list(:item, 3, merchant_id: id)
-    
+    it 'can get all items for a merchant' do
+      id = create(:merchant).id
+      create_list(:item, 3, merchant_id: id)
+
       get "/api/v1/merchants/#{Merchant.first.id}/items"
 
       expect(response).to be_successful

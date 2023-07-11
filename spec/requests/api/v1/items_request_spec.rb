@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Items API' do
@@ -10,7 +12,7 @@ RSpec.describe 'Items API' do
 
       get api_v1_items_path
 
-      item_data = JSON.parse(response.body, symbolize_names: true)  
+      item_data = JSON.parse(response.body, symbolize_names: true)
       items = item_data[:data]
 
       expect(response).to be_successful
@@ -28,7 +30,7 @@ RSpec.describe 'Items API' do
     end
 
     it 'can get one item by its id' do
-      merchant = create(:merchant)
+      create(:merchant)
       id = create(:item, merchant_id: create(:merchant).id).id
 
       get api_v1_item_path(id)
@@ -43,7 +45,7 @@ RSpec.describe 'Items API' do
       expect(item_data[:data][:attributes]).to have_key(:description)
       expect(item_data[:data][:attributes][:description]).to be_a(String)
       expect(item_data[:data][:attributes]).to have_key(:unit_price)
-      expect(item_data[:data][:attributes][:unit_price]).to be_a(Float)  
+      expect(item_data[:data][:attributes][:unit_price]).to be_a(Float)
       expect(item_data[:data][:attributes]).to have_key(:merchant_id)
       expect(item_data[:data][:attributes][:merchant_id]).to be_a(Integer)
     end

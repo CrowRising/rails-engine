@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Merchants API' do
@@ -30,7 +32,6 @@ RSpec.describe 'Merchants API' do
       expect(merchant_info[:data][:attributes]).to have_key(:name)
       expect(merchant_info[:data][:attributes][:name]).to be_a(String)
       expect(merchant_info[:data][:id]).to eq(id.to_s)
-
     end
   end
 end
