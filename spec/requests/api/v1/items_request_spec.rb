@@ -111,5 +111,34 @@ RSpec.describe 'Items API' do
       expect(Item.count).to eq(0)
       expect { Item.find(id) }.to raise_error(ActiveRecord::RecordNotFound)
     end
+
+    it 'can delete invoice if only one item' do
+      @merchant = create(:merchant)
+      item = create(:item, merchant_id: @merchant.id)
+      customer = create(:customer)
+      invoice = create(:invoice, customer_id: customer.id, merchant_id: @merchant.id)
+      invoice_item = create(:invoice_item, item_id: item.id, invoice_id: invoice.id)  
+
+      delete api_v1_item_path(item.id)
+
+      expect(response).to be_successful
+      expect(response.status).to eq(204)
+      expect { Invoice.find(invoice.id) }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+
+    it 'cannot delete invoice if more than one item' do
+      @merchant = create(:merchant)
+      item = create(:item, merchant_id: @merchant.id)
+      item2 = create(:item, merchant_id: @merchant.id)
+      customer = create(:customer)
+      invoice = create(:invoice, customer_id: customer.id, merchant_id: @merchant.id)
+      invoice_item = create(:invoice_item, item_id: item.id, invoice_id: invoice.id)
+      invoice_item2 = create(:invoice_item, item_id: item2.id, invoice_id: invoice.id)
+
+      delete api_v1_item_path(item.id)
+
+      expect(response).to be_successful
+      expect(Invoice.find(invoice.id)).to eq(invoice)
+    end
   end
 end
