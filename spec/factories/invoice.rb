@@ -2,8 +2,9 @@
 
 FactoryBot.define do
   factory :invoice do
-    customer_id { Faker::Invoice.customer_id }
-    merchant_id { Faker::Invoice.merchant_id }
-    status { Faker::Invoice.status }
+    customer_id { create(:customer).id }
+    merchant_id { create(:merchant).id }
+    status { '204' }
   end
 end
+
