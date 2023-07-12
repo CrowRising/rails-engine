@@ -9,11 +9,12 @@
 
 ## About This Project
 ### Mod 3 Solo Project
-You are working for a company developing an E-Commerce Application. Your team is working in a service-oriented architecture, meaning the front and back ends of this application are separate and communicate via APIs.
+You are working for a company developing an E-Commerce Application. Your team is working in a service-oriented architecture, meaning the front and back ends of this application are separate and communicate via APIs.![ecommerce-1024x536](https://github.com/CrowRising/rails-engine/assets/121584341/d2c64638-cad7-4da2-af0a-9234d6f202be)
+
                     
 ## Purpose
 
-The purpose of this project was to expose the data the poweres the site through an API that the front end (in theory) would consume. There is no actual front end for this project.
+The purpose of this project was to expose the data the powers the site through an API that the front end (in theory) would consume. There is no actual front end for this project.
 
 ## Built With
 * ![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white)
