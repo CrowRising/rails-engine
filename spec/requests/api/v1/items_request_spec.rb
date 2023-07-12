@@ -117,7 +117,7 @@ RSpec.describe 'Items API' do
       item = create(:item, merchant_id: @merchant.id)
       customer = create(:customer)
       invoice = create(:invoice, customer_id: customer.id, merchant_id: @merchant.id)
-      invoice_item = create(:invoice_item, item_id: item.id, invoice_id: invoice.id)  
+      create(:invoice_item, item_id: item.id, invoice_id: invoice.id)
 
       delete api_v1_item_path(item.id)
 
@@ -132,8 +132,8 @@ RSpec.describe 'Items API' do
       item2 = create(:item, merchant_id: @merchant.id)
       customer = create(:customer)
       invoice = create(:invoice, customer_id: customer.id, merchant_id: @merchant.id)
-      invoice_item = create(:invoice_item, item_id: item.id, invoice_id: invoice.id)
-      invoice_item2 = create(:invoice_item, item_id: item2.id, invoice_id: invoice.id)
+      create(:invoice_item, item_id: item.id, invoice_id: invoice.id)
+      create(:invoice_item, item_id: item2.id, invoice_id: invoice.id)
 
       delete api_v1_item_path(item.id)
 

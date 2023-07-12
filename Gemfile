@@ -45,14 +45,15 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.2', '>= 6.2.0'
   gem 'faker', '~> 2.18', '>= 2.18.0'
   gem 'jsonapi-serializer'
-  gem 'pry'
   gem 'net-http'
+  gem 'pry'
   gem 'rspec-rails'
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   gem 'listen', '~> 3.3'
+  gem 'rubocop-rails'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

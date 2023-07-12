@@ -7,4 +7,3 @@ FactoryBot.define do
     status { '204' }
   end
 end
-

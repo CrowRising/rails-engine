@@ -26,7 +26,7 @@ RSpec.describe Item, type: :model do
       @item_4 = create(:item, name: 'Underwear', unit_price: 3.00)
     end
 
-    it 'find_by_name_fragment' do 
+    it 'find_by_name_fragment' do
       expect(Item.find_by_name_fragment('oo')).to eq([@item_1])
       expect(Item.find_by_name_fragment('oo')).to_not eq([@item_2, @item_3, @item_4])
       expect(Item.find_by_name_fragment('Ha')).to eq([@item_2])
@@ -52,10 +52,10 @@ RSpec.describe Item, type: :model do
 
     it 'find_all' do
       result = Item.find_all(name: 'oo')
-      expect(result).to eq([@item_1]) 
+      expect(result).to eq([@item_1])
     end
 
-    it 'find_all with invalid params' do  
+    it 'find_all with invalid params' do
       result = Item.find_all(name: '', min_price: nil, max_price: nil)
       expect(result).to eq(false)
     end

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Merchants Items API' do
-  describe 'happy path' do 
+  describe 'happy path' do
     before :each do
       Merchant.destroy_all
       Item.destroy_all

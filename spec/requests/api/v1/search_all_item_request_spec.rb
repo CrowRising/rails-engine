@@ -24,11 +24,11 @@ RSpec.describe 'Search All Item API' do
       expect(response).to be_successful
       expect(items_data[:data].count).to eq(7)
     end
-    
+
     it 'returns items over min price param' do
       get '/api/v1/items/find_all?min_price=4.99'
       items_data = JSON.parse(response.body, symbolize_names: true)
-  
+
       expect(response).to be_successful
       expect(response.status).to eq(200)
       expect(items_data[:data].count).to eq(5)
@@ -58,7 +58,7 @@ RSpec.describe 'Search All Item API' do
       expect(items_data[:data][3][:attributes][:name]).to_not eq(@item7.name)
     end
   end
-  
+
   describe 'sad path' do
     before :each do
       @merchant = create(:merchant)
@@ -72,7 +72,7 @@ RSpec.describe 'Search All Item API' do
       @item6 = create(:item, merchant_id: @merchant3.id, unit_price: 13.00, name: 'elk burger')
       @item7 = create(:item, merchant_id: @merchant3.id, unit_price: 10.00, name: 'no-bun burger')
     end
-    
+
     it 'returns 404 if invalid data is passed' do
       get api_v1_items_find_all_path(name: '')
 
