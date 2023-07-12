@@ -3,7 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Merchants Items API' do
-  describe 'happy path' do
+  describe 'happy path' do 
+    before :each do
+      Merchant.destroy_all
+      Item.destroy_all
+    end
     it 'can get all items for a merchant' do
       id = create(:merchant).id
       create_list(:item, 3, merchant_id: id)
