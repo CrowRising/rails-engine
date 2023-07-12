@@ -2,6 +2,9 @@
 
 class Item < ApplicationRecord
   belongs_to :merchant
+  has_many :invoice_items, dependent: :delete_all
+  has_many :invoices, through: :invoice_items
+  has_many :customers, through: :invoices
 
   validates_presence_of :name,
                         :unit_price,
@@ -27,5 +30,12 @@ class Item < ApplicationRecord
     min_price.present? ? @min_price  = min_price : @min_price = 0
     max_price.present? ? @max_price = max_price : @max_price = 999999
     Item.where("unit_price BETWEEN #{@min_price} AND #{@max_price}")
+  end
+
+  def invoice_delete
+    Invoice.left_joins(:invoice_items)
+            .group(:id)
+            .having('COUNT(invoice_items.id) = 0').destroy_all
+
   end
 end
