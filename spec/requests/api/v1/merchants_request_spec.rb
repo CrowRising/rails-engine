@@ -4,6 +4,9 @@ require 'rails_helper'
 
 RSpec.describe 'Merchants API' do
   describe 'happy path' do
+    before :each do
+      Merchant.destroy_all
+    end
     it 'sends a list of merchants' do
       create_list(:merchant, 9)
 
