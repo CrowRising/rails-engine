@@ -57,7 +57,7 @@ RSpec.describe Item, type: :model do
       expect(result).to eq(false)
     end
 
-    it 'find_all with pricae range' do
+    it 'find_all with price range' do
       result = Item.find_all(min_price: 1.00, max_price: 50.00)
       expect(result).to eq([@item_3, @item_4])
       expect(result).to_not eq([@item_1, @item_2])
