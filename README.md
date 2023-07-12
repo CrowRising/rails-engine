@@ -13,7 +13,7 @@ You are working for a company developing an E-Commerce Application. Your team is
                     
 ## Purpose
 
-The purpose of this project was to expose the data the poweres the site through an API that the front end would in theory consume. There is no actual front end for this project.
+The purpose of this project was to expose the data the poweres the site through an API that the front end (in theory) would consume. There is no actual front end for this project.
 
 ## Built With
 * ![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white)
