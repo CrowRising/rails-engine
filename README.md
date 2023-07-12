@@ -10,6 +10,8 @@
 ## About This Project
 ### Mod 3 Solo Project
 You are working for a company developing an E-Commerce Application. Your team is working in a service-oriented architecture, meaning the front and back ends of this application are separate and communicate via APIs.
+<br><br>
+<img src= "https://imatrix.com/wp-content/uploads/sites/12/2021/03/ecommerce-1024x536.jpg">
                     
 ## Purpose
 
