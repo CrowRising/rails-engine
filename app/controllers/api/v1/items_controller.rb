@@ -24,6 +24,7 @@ module Api
       def destroy
         item = Item.find(params[:id])
         item.destroy
+        item.invoice_delete
       end
 
       private
