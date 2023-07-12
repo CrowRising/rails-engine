@@ -6,7 +6,7 @@ class Merchant < ApplicationRecord
   validates_presence_of :name
 
   def self.find_by_name_fragment(fragment)
-    Merchant.where('name ILIKE ?', "%#{fragment}%").order(:name)
+    Merchant.where('name ILIKE :fragment', fragment: "%#{fragment}%").order(:name)
   end
 
   def self.find_by_all_merch_id(merch_id)
