@@ -75,8 +75,9 @@ git push origin feature/AmazingFeature
       GET '/api/v1/merchants/:id' - One Merchant
       GET '/api/v1/items' - All Items
       GET '/api/v1/item/:id' - One Item
-      POST '/api/v1/items/:id' - Create or Delete Item
+      POST '/api/v1/items/:id' - Create Item
       PUT '/api/v1/items/:id' - Update Item
+      DELETE /api/v1/items/:id - Delete Item Invoice
       GET '/api/v1/merchants/:merchant_id/items' - Merchant's Items
       GET '/api/v1/items/:item_id/merchant' - Item's Merchant
     </code>
