@@ -46,6 +46,7 @@ group :development, :test do
   gem 'faker', '~> 2.18', '>= 2.18.0'
   gem 'jsonapi-serializer'
   gem 'pry'
+  gem 'net-http'
   gem 'rspec-rails'
 end
 
