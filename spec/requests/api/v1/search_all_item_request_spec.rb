@@ -17,12 +17,22 @@ RSpec.describe 'Search All Item API' do
       @item7 = create(:item, merchant_id: @merchant3.id, unit_price: 100.00, name: 'no-bun burger')
     end
 
-    it 'can find all items that match a search term' do
+    it 'can find all items that match a search term and alphabetized' do
       get api_v1_items_find_all_path(name: 'burger')
 
       items_data = JSON.parse(response.body, symbolize_names: true)
       expect(response).to be_successful
       expect(items_data[:data].count).to eq(7)
+      expect(items_data[:data][0][:attributes][:name]).to eq(@item4.name)
+      expect(items_data[:data][6][:attributes][:name]).to eq(@item2.name)
+    end
+
+    it 'cannot find items that do not match a search term' do
+      get api_v1_items_find_all_path(name: 'burgerz')
+
+      items_data = JSON.parse(response.body, symbolize_names: true)
+      expect(response).to be_successful
+      expect(items_data[:data].count).to eq(0)
     end
 
     it 'returns items over min price param' do
